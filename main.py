@@ -23,7 +23,7 @@ options.add_argument('--start-maximized')
 options.add_argument('--headless')
 
 #クローラーの起動
-driver = webdriver.Chrome(executable_path = driver_path, chrome_options = options)
+driver = webdriver.Chrome(executable_path = driver_path, options = options)
 
 # ページへアクセス
 driver.get('https://info.finance.yahoo.co.jp/fx/')
