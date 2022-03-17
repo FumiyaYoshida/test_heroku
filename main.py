@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 # ChromeDriverのオプション用モジュール
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome import service as fs
+from selenium.webdriver.common.by import By
 
 # ドライバーのパス指定
 driver_path = '/app/.chromedriver/bin/chromedriver'
@@ -35,7 +36,7 @@ wait = WebDriverWait(driver, 10)
 wait.until(EC.presence_of_all_elements_located)
 
 # ドル円を取得
-element = driver.find_element_by_xpath('//span[@id="USDJPY_top_bid"]').get_attribute("textContent")
+element = driver.find_element(by=By.XPATH, value='//span[@id="USDJPY_top_bid"]').get_attribute("textContent")
 # ドル円を表示
 print(element)
 
