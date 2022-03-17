@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 # ChromeDriverのオプション用モジュール
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome import service as fs
 
 # ドライバーのパス指定
 driver_path = '/app/.chromedriver/bin/chromedriver'
@@ -23,7 +24,7 @@ options.add_argument('--start-maximized')
 options.add_argument('--headless')
 
 #クローラーの起動
-driver = webdriver.Chrome(executable_path = driver_path, options = options)
+driver = webdriver.Chrome(executable_path = fs.Service(driver_path), options = options)
 
 # ページへアクセス
 driver.get('https://info.finance.yahoo.co.jp/fx/')
@@ -33,7 +34,7 @@ wait = WebDriverWait(driver, 10)
 wait.until(EC.presence_of_all_elements_located)
 
 # ドル円を取得
-element = driver.find_element_by_id('USDJPY_top_bid').get_attribute("textContent")
+element = driver.find_element_by_xpath('//span[@id="USDJPY_top_bid"]').get_attribute("textContent")
 # ドル円を表示
 print(element)
 
