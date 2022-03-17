@@ -23,6 +23,7 @@ options.add_argument('--proxy-server="direct://"')
 options.add_argument('--proxy-bypass-list=*')
 options.add_argument('--start-maximized')
 options.add_argument('--headless')
+options.add_argument("--disable-dev-shm-usage")
 
 #クローラーの起動
 chrome_service = fs.Service(executable_path = driver_path)
