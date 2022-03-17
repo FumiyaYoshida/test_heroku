@@ -2,7 +2,7 @@
 from selenium import webdriver
 # ChromeDriverのバージョンを合わせるらしい
 import chromedriver_binary
-from webdriver_manager.chrome import ChromeDriverManager
+# from webdriver_manager.chrome import ChromeDriverManager
 # ページが読み込まれるまで待機するモジュール
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
